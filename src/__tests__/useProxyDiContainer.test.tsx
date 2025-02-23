@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { useProxyDiContainer } from '../useProxyDiContainer';
+import { useProxyDiContainer } from '../index';
 
 const TestComponent = () => {
   const container = useProxyDiContainer();
@@ -10,8 +10,6 @@ const TestComponent = () => {
 describe('useProxyDiContainer', () => {
   it('повинен ініціалізувати контейнер', async () => {
     render(<TestComponent />);
-    await waitFor(() =>
-      expect(screen.getByTestId('container').textContent).toBe('initialized')
-    );
+    await waitFor(() => expect(screen.getByTestId('container').textContent).toBe('initialized'));
   });
 });
