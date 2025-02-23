@@ -17,5 +17,5 @@ module.exports = {
     '!src/setupTests.ts',
   ],
   coverageDirectory: 'coverage',
-  coverageReporters: ['text', 'lcov', 'html'],
+  coverageReporters: ['text', 'lcov'],
 };

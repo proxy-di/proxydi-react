@@ -8,7 +8,7 @@ const TestComponent = () => {
 };
 
 describe('useProxyDiContainer', () => {
-  it('повинен ініціалізувати контейнер', async () => {
+  it('should initialize the container', async () => {
     render(<TestComponent />);
     await waitFor(() => expect(screen.getByTestId('container').textContent).toBe('initialized'));
   });
