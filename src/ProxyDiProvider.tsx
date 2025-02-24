@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { ProxyDiContainer } from 'proxydi';
 import { ProxyDiContext } from './ProxyDiContext';
 import { useProxyDiContainer } from './useProxyDiContainer';
@@ -12,31 +12,25 @@ export const ProxyDiProvider: React.FC<ProxyDiProviderProps> = ({
   children,
   container,
 }) => {
-  const [proyDiContainer, setProxyDiContainer] = useState<
-    ProxyDiContainer | undefined
-  >(container ? container : undefined);
-
   const parentContainer = useProxyDiContainer();
 
-  useEffect(() => {
-    let instance: ProxyDiContainer | undefined;
-
-    if (!container) {
-      instance = parentContainer
+  const proxyDiContainer = useMemo(() => {
+    return (
+      container ??
+      (parentContainer
         ? parentContainer.createChildContainer()
-        : new ProxyDiContainer();
-      setProxyDiContainer(instance);
-    }
+        : new ProxyDiContainer())
+    );
+  }, [container, parentContainer]);
 
+  useEffect(() => {
     return () => {
-      if (instance) {
-        instance.destroy();
-      }
+      proxyDiContainer.destroy();
     };
-  }, []);
+  }, [proxyDiContainer]);
 
   return (
-    <ProxyDiContext.Provider value={proyDiContainer}>
+    <ProxyDiContext.Provider value={proxyDiContainer}>
       {children}
     </ProxyDiContext.Provider>
   );
