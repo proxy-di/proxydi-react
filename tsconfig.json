@@ -5,6 +5,7 @@
     "moduleResolution": "bundler",
     "jsx": "react",
     "declaration": true,
+    "declarationDir": "dist",
     "outDir": "dist",
     "strict": true,
     "esModuleInterop": true,

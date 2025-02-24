@@ -1,22 +1,48 @@
 {
   "name": "@proxydi/react",
   "version": "0.0.1",
-  "description": "React wrapper for the proxydi library",
+  "description": "React wrapper for the ProxyDi library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "rollup -c",
     "test": "jest",
     "test:watch": "jest --watch",
+    "prepare": "npm run build",
     "coverage": "jest --coverage"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proxy-di/proxydi-react.git"
+  },
+  "keywords": [
+    "DI",
+    "DI-container",
+    "dependency-injection",
+    "dependency-injection-container",
+    "injector",
+    "ioc",
+    "inversion-of-control",
+    "proxy",
+    "typescript",
+    "react"
+  ],
+  "author": "Yolziii",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/proxy-di/proxydi-react/issues"
+  },
+  "homepage": "https://proxy-di.github.io/proxydi-react#readme/",
   "peerDependencies": {
-    "react": "^19.0.0"
+    "react": "^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
     "proxydi": "^0.0.7"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "@types/jest": "^29.5.14",
@@ -31,6 +57,10 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.5.2",
+    "rollup": "^2.79.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.36.0",
     "ts-jest": "^29.2.6"
   }
 }
