@@ -10,6 +10,7 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  testPathIgnorePatterns: ['/dist/'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/**/*.d.ts',
