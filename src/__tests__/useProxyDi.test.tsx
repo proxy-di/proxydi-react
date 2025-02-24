@@ -4,9 +4,13 @@ import { ProxyDiProvider } from '../ProxyDiProvider';
 import { useProxyDi } from '../useProxyDi';
 import { ProxyDiContainer } from 'proxydi';
 
+class TestService {
+  constructor(public readonly name = 'Test service') {}
+}
+
 const TestDummy = () => {
-  const dependency = useProxyDi<string>('dummy');
-  return <div data-testid="dependency">{dependency}</div>;
+  const dependency = useProxyDi<TestService>('service');
+  return <div data-testid="dependency">{dependency.name}</div>;
 };
 
 interface ErrorBoundaryProps {
@@ -38,7 +42,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 describe('useProxyDi()', () => {
   it('should resolve dependency', async () => {
     const container = new ProxyDiContainer({ allowRegisterAnything: true });
-    container.registerDependency('resolvedValue', 'dummy');
+    container.registerDependency(TestService, 'service');
 
     render(
       <ProxyDiProvider container={container}>
@@ -47,15 +51,13 @@ describe('useProxyDi()', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId('dependency').textContent).toBe(
-        'resolvedValue',
-      );
+      expect(screen.getByTestId('dependency').textContent).toBe('Test service');
     });
   });
 
   it('should resolve parnt dependency', async () => {
     const container = new ProxyDiContainer({ allowRegisterAnything: true });
-    container.registerDependency('resolvedValue', 'dummy');
+    container.registerDependency(TestService, 'service');
 
     render(
       <ProxyDiProvider container={container}>
@@ -66,9 +68,7 @@ describe('useProxyDi()', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId('dependency').textContent).toBe(
-        'resolvedValue',
-      );
+      expect(screen.getByTestId('dependency').textContent).toBe('Test service');
     });
   });
 

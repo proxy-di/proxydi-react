@@ -1,7 +1,7 @@
 {
-  "name": "@proxyd/react",
-  "version": "0.0.7",
-  "description": "React wrappers for the proxydi library",
+  "name": "@proxydi/react",
+  "version": "0.0.1",
+  "description": "React wrapper for the proxydi library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
