@@ -1,3 +1,6 @@
-// ...existing code...
+
 export { useProxyDiContainer } from "./useProxyDiContainer";
-// ...existing code...
+export { useProxyDi } from "./useProxyDi";
+export { ProxyDiProvider } from "./ProxyDiProvider";
+export { ProxyDiContext } from "./ProxyDiContext";
+

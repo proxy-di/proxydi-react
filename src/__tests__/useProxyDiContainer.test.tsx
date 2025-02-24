@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { useProxyDiContainer } from '../index';
-import { ProxyDiProvider } from '../ProxyDiProvider';
+import { ProxyDiProvider, useProxyDiContainer } from '../index';
 import { ProxyDiContainer } from 'proxydi';
 
 const Test = () => {

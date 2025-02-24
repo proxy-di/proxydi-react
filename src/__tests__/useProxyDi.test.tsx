@@ -1,7 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { ProxyDiProvider } from '../ProxyDiProvider';
-import { useProxyDi } from '../useProxyDi';
+import { ProxyDiProvider, useProxyDi, } from '../index';
 import { ProxyDiContainer } from 'proxydi';
 
 class TestService {
