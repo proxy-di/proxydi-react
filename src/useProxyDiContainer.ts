@@ -1,18 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useContext } from 'react';
+import { ProxyDiContext } from './ProxyDiContext';
 import { ProxyDiContainer } from 'proxydi';
 
-export function useProxyDiContainer(): ProxyDiContainer | null {
-  const [container, setContainer] = useState<ProxyDiContainer | null>(null);
+export const useProxyDiContainer = (): ProxyDiContainer => {
+  const container = useContext(ProxyDiContext);
 
-  useEffect(() => {
-    const instance = new ProxyDiContainer();
-    setContainer(instance);
-
-    // Cleanup if necessary
-    return () => {
-      // if (instance.dispose) instance.dispose();
-    };
-  }, []);
-
-  return container;
-}
+  return container!;
+};
