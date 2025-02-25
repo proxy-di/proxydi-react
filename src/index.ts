@@ -1,6 +1,3 @@
-
-export { useProxyDiContainer } from "./useProxyDiContainer";
-export { useProxyDi } from "./useProxyDi";
-export { ProxyDiProvider } from "./ProxyDiProvider";
-export { ProxyDiContext } from "./ProxyDiContext";
-
+export { ProxyDiProvider } from './ProxyDiProvider';
+export { useProxyDi } from './useProxyDi';
+export { useProxyDiContainer } from './useProxyDiContainer';
