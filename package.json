@@ -1,6 +1,6 @@
 {
   "name": "@proxydi/react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React wrapper for the ProxyDi library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "npm run build",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "docs": "npx typedoc src/index.ts --excludeNotDocumented --disableSources --customCss doc/doc.css --githubPages"
   },
   "publishConfig": {
     "access": "public"
@@ -36,12 +37,13 @@
   "bugs": {
     "url": "https://github.com/proxy-di/proxydi-react/issues"
   },
-  "homepage": "https://proxy-di.github.io/proxydi-react#readme/",
+  "homepage": "https://github.com/proxy-di/proxydi-react#readme/",
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "proxydi": "^0.0.7"
+    "proxydi": "^0.0.7",
+    "typedoc": "^0.27.9"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",

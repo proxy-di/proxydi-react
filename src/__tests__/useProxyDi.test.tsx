@@ -1,6 +1,6 @@
 import React, { Component, ReactNode } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { ProxyDiProvider, useProxyDi, } from '../index';
+import { ProxyDiProvider, useProxyDi } from '../index';
 import { ProxyDiContainer } from 'proxydi';
 
 class TestService {
@@ -45,6 +45,22 @@ describe('useProxyDi()', () => {
 
     render(
       <ProxyDiProvider container={container}>
+        <TestDummy />
+      </ProxyDiProvider>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('dependency').textContent).toBe('Test service');
+    });
+  });
+
+  it('init via provider', async () => {
+    render(
+      <ProxyDiProvider
+        init={(container) =>
+          container.registerDependency(TestService, 'service')
+        }
+      >
         <TestDummy />
       </ProxyDiProvider>,
     );
