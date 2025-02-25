@@ -12,6 +12,9 @@
     "prepare": "npm run build",
     "coverage": "jest --coverage"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/proxy-di/proxydi-react.git"
