@@ -41,7 +41,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 describe('useProxyDi()', () => {
   it('should resolve dependency', async () => {
     const container = new ProxyDiContainer({ allowRegisterAnything: true });
-    container.registerDependency(TestService, 'service');
+    container.register(TestService, 'service');
 
     render(
       <ProxyDiProvider container={container}>
@@ -57,9 +57,7 @@ describe('useProxyDi()', () => {
   it('init via provider', async () => {
     render(
       <ProxyDiProvider
-        init={(container) =>
-          container.registerDependency(TestService, 'service')
-        }
+        init={(container) => container.register(TestService, 'service')}
       >
         <TestDummy />
       </ProxyDiProvider>,
@@ -72,7 +70,7 @@ describe('useProxyDi()', () => {
 
   it('should resolve parnt dependency', async () => {
     const container = new ProxyDiContainer({ allowRegisterAnything: true });
-    container.registerDependency(TestService, 'service');
+    container.register(TestService, 'service');
 
     render(
       <ProxyDiProvider container={container}>

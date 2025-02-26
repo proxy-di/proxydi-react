@@ -6,9 +6,7 @@ React wrapper for [ProxyDi](https://www.npmjs.com/package/proxydi) library
 
 <img src="https://github.com/proxy-di/proxydi-react/blob/main/assets/ProxyDiReactLogo.png?raw=true" width="196">
 
-## Usage
-
-### Installation
+## Installation
 
 Install the library with its core dependency:
 
@@ -16,20 +14,20 @@ Install the library with its core dependency:
 npm install @proxydi/react proxydi
 ```
 
-### Setup
+## Configuring container
 
-In your main application file (e.g., `index.tsx`):
+In your main application file (e.g., `index.tsx`) wrap your components by [< ProxyDiProvider />](https://proxy-di.github.io/proxydi-react/functions/ProxyDiProvider.html) to give them access to dependencies in ProxyDiContainer
 
 ```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ProxyDiProvider } from '@proxydi/react';
-import { createContainer } from 'proxydi';
+import { ProxyDiContainer } from 'proxydi';
 import App from './App';
 import MyService from './MyService';
 
 const initAppDependencies = (container: ProxyDiContainer) => {
-  container.registerDependency(MyService, 'My-Service');
+  container.register(MyService, 'My-Service');
 };
 
 ReactDOM.render(
@@ -40,9 +38,9 @@ ReactDOM.render(
 );
 ```
 
-### Using Dependencies in a Components
+## Using Dependencies
 
-In your React component, access your services via the `useProxyDi` hook:
+In your React component, access your services via the [useProxyDi()](https://proxy-di.github.io/proxydi-react/functions/useProxyDi.html) hook.
 
 ```tsx
 import React from 'react';
@@ -63,4 +61,14 @@ const MyComponent = () => {
 export default MyComponent;
 ```
 
-To be continued...
+## Nesting ProxyDiProvider
+
+You can use nested `<ProxyDiProvider />` instances when you need a [child container](https://proxy-di.github.io/proxydi/#hierarchy-of-containers).
+
+## License
+
+This project is licensed under the terms of the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+## Contributing
+
+Contribution documentation is not ready yet but is planned. Feel free to contribute even now though! :)
