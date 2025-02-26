@@ -16,7 +16,7 @@ npm install @proxydi/react proxydi
 
 ## Configuring container
 
-In your main application file (e.g., `index.tsx`) wrap your components by [ProxyDiProvider](https://proxy-di.github.io/proxydi-react/functions/ProxyDiProvider.html) to give them access to dependencies in ProxyDiContainer
+In your main application file (e.g., `index.tsx`) wrap your components by [< ProxyDiProvider />](https://proxy-di.github.io/proxydi-react/functions/ProxyDiProvider.html) to give them access to dependencies in ProxyDiContainer
 
 ```tsx
 import React from 'react';
@@ -40,7 +40,7 @@ ReactDOM.render(
 
 ## Using Dependencies
 
-In your React component, access your services via the [useProxyDi](https://proxy-di.github.io/proxydi-react/functions/useProxyDi.html) hook.
+In your React component, access your services via the [useProxyDi()](https://proxy-di.github.io/proxydi-react/functions/useProxyDi.html) hook.
 
 ```tsx
 import React from 'react';
@@ -63,7 +63,7 @@ export default MyComponent;
 
 ## Nesting ProxyDiProvider
 
-You can use nested `ProxyDiProvider` instances when you need a [child container](https://proxy-di.github.io/proxydi/#hierarchy-of-containers).
+You can use nested `<ProxyDiProvider />` instances when you need a [child container](https://proxy-di.github.io/proxydi/#hierarchy-of-containers).
 
 ## License
 
