@@ -1,4 +1,7 @@
 assets/
+doc/
+.prettierignore
+jest.config.js
 
 # Exclude version control directories
 .git/
