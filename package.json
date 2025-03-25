@@ -1,6 +1,6 @@
 {
   "name": "@proxydi/react",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "description": "React wrapper for the ProxyDi library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -42,7 +42,7 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "proxydi": "^0.0.13"
+    "proxydi": "^0.1.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.2",
